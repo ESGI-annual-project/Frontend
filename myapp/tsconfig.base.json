@@ -10,16 +10,33 @@
         "importHelpers": true,
         "target": "es2015",
         "module": "esnext",
-        "lib": ["es2017", "dom"],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@myapp/orders": ["libs/orders/src/index.ts"],
-            "@myapp/products": ["libs/products/src/index.ts"],
-            "@myapp/ui": ["libs/ui/src/index.ts"],
-            "@myapp/users": ["libs/users/src/index.ts"]
+            "@myapp/orders": [
+                "libs/orders/src/index.ts"
+            ],
+            "@myapp/products": [
+                "libs/products/src/index.ts"
+            ],
+            "@myapp/ui": [
+                "libs/ui/src/index.ts"
+            ],
+            "@myapp/users": [
+                "libs/users/src/index.ts"
+            ],
+            "@env/*": [
+                "environments/*"
+            ]
         }
     },
-    "exclude": ["node_modules", "tmp"]
+    "exclude": [
+        "node_modules",
+        "tmp"
+    ]
 }
