@@ -16,6 +16,9 @@ import { ProductsFormComponent } from './pages/products/products-form/products-f
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
+
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
@@ -34,6 +37,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
 import { TagModule } from 'primeng/tag';
 import { InputMaskModule } from 'primeng/inputmask';
+import { FieldsetModule } from 'primeng/fieldset';
 
 
 
@@ -52,7 +56,8 @@ const UX_MODULE = [
     InputSwitchModule,
     EditorModule,
     TagModule,
-    InputMaskModule
+    InputMaskModule,
+    FieldsetModule
 ];
 
 const routes: Routes = [
@@ -99,9 +104,17 @@ const routes: Routes = [
             {
                 path: 'users/form/:id',
                 component: UsersFormComponent
-            }
-        ]
-    }
+            },
+            {
+                path: 'orders',
+                component: OrdersListComponent
+            },
+            {
+                path: 'orders/:id',
+                component: OrdersDetailComponent
+            },
+        ],
+    },
 ];
 
 @NgModule({
@@ -116,7 +129,9 @@ const routes: Routes = [
         ProductsListComponent,
         ProductsFormComponent,
         UsersFormComponent,
-        UsersListComponent
+        UsersListComponent,
+        OrdersListComponent,
+        OrdersDetailComponent
     ],
     imports: [
         BrowserModule,

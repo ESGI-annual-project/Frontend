@@ -7,4 +7,4 @@ export const ordersRoutes: Route[] = [];
 @NgModule({
     imports: [CommonModule, RouterModule]
 })
-export class OrdersModule {}
+export class OrdersModule { }
