@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@myapp/users';
 
 @Component({
   selector: 'admin-sidebar',
-  templateUrl: './sidebar.component.html',
+  templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
+  constructor(private authService: AuthService) { }
 
-  constructor() { }
 
-  ngOnInit(): void {
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  ngOnInit(): void { }
+
+  logoutUser() {
+    this.authService.logout();
   }
-
 }
