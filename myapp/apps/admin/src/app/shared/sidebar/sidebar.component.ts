@@ -9,7 +9,7 @@ export class SidebarComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
 
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+
   ngOnInit(): void { }
 
   logoutUser() {
