@@ -1,0 +1,693 @@
+{
+    "version": 1,
+    "projects": {
+        "admin": {
+            "projectType": "application",
+            "root": "apps/admin",
+            "sourceRoot": "apps/admin/src",
+            "prefix": "myapp",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "allowedCommonJsDependencies": [
+                            "lodash"
+                        ],
+                        "outputPath": "dist/apps/admin",
+                        "index": "apps/admin/src/index.html",
+                        "main": "apps/admin/src/main.ts",
+                        "polyfills": "apps/admin/src/polyfills.ts",
+                        "tsConfig": "apps/admin/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/admin/src/favicon.ico",
+                            "apps/admin/src/assets"
+                        ],
+                        "styles": [
+                            "apps/admin/src/styles.scss",
+                            "node_modules/quill/dist/quill.core.css",
+                            "node_modules/quill/dist/quill.snow.css"
+                        ],
+                        "scripts": [
+                            "node_modules/quill/dist/quill.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "admin:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "admin:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "admin:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/admin/src/**/*.ts",
+                            "apps/admin/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/apps/admin"
+                    ],
+                    "options": {
+                        "jestConfig": "apps/admin/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "admin-e2e": {
+            "root": "apps/admin-e2e",
+            "sourceRoot": "apps/admin-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/admin-e2e/cypress.json",
+                        "tsConfig": "apps/admin-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "admin:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "admin:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/admin-e2e/**/*.{js,ts}"
+                        ]
+                    }
+                }
+            }
+        },
+        "annualproject": {
+            "projectType": "application",
+            "root": "./angular.json",
+            "sourceRoot": "apps/annualproject/src",
+            "prefix": "myapp",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/apps/annualproject",
+                        "index": "apps/annualproject/src/index.html",
+                        "main": "apps/annualproject/src/main.ts",
+                        "polyfills": "apps/annualproject/src/polyfills.ts",
+                        "tsConfig": "apps/annualproject/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/annualproject/src/favicon.ico",
+                            "apps/annualproject/src/assets"
+                        ],
+                        "styles": [
+                            "apps/annualproject/src/styles.scss",
+                            "node_modules/quill/dist/quill.core.css",
+                            "node_modules/quill/dist/quill.snow.css"
+                        ],
+                        "scripts": [
+                            "node_modules/quill/dist/quill.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "annualproject:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "annualproject:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "annualproject:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/annualproject/src/**/*.ts",
+                            "apps/annualproject/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/apps/annualproject"
+                    ],
+                    "options": {
+                        "jestConfig": "apps/annualproject/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "annualproject-e2e": {
+            "root": "apps/annualproject-e2e",
+            "sourceRoot": "apps/annualproject-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/annualproject-e2e/cypress.json",
+                        "tsConfig": "apps/annualproject-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "annualproject:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "annualproject:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/annualproject-e2e/**/*.{js,ts}"
+                        ]
+                    }
+                }
+            }
+        },
+        "forfait-one": {
+            "projectType": "application",
+            "sourceRoot": "apps/forfait-one/src",
+            "prefix": "myapp",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "outputs": [
+                        "{options.outputPath}"
+                    ],
+                    "options": {
+                        "outputPath": "dist/apps/forfait-one",
+                        "index": "apps/forfait-one/src/index.html",
+                        "main": "apps/forfait-one/src/main.ts",
+                        "polyfills": "apps/forfait-one/src/polyfills.ts",
+                        "tsConfig": "apps/forfait-one/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "apps/forfait-one/src/favicon.ico",
+                            "apps/forfait-one/src/assets"
+                        ],
+                        "styles": [
+                            "apps/forfait-one/src/styles.scss",
+                            "node_modules/quill/dist/quill.core.css",
+                            "node_modules/quill/dist/quill.snow.css"
+                        ],
+                        "scripts": [
+                            "node_modules/quill/dist/quill.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "forfait-one:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "forfait-one:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "forfait-one:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/forfait-one/**/*.ts",
+                            "apps/forfait-one/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/apps/forfait-one"
+                    ],
+                    "options": {
+                        "jestConfig": "apps/forfait-one/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "forfait-tree": {
+            "projectType": "application",
+            "sourceRoot": "apps/forfait-tree/src",
+            "prefix": "myapp",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "outputs": [
+                        "{options.outputPath}"
+                    ],
+                    "options": {
+                        "outputPath": "dist/apps/forfait-tree",
+                        "index": "apps/forfait-tree/src/index.html",
+                        "main": "apps/forfait-tree/src/main.ts",
+                        "polyfills": "apps/forfait-tree/src/polyfills.ts",
+                        "tsConfig": "apps/forfait-tree/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "apps/forfait-tree/src/favicon.ico",
+                            "apps/forfait-tree/src/assets"
+                        ],
+                        "styles": [
+                            "apps/forfait-tree/src/styles.scss",
+                            "node_modules/quill/dist/quill.core.css",
+                            "node_modules/quill/dist/quill.snow.css"
+                        ],
+                        "scripts": [
+                            "node_modules/quill/dist/quill.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "forfait-tree:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "forfait-tree:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "forfait-tree:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/forfait-tree/**/*.ts",
+                            "apps/forfait-tree/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/apps/forfait-tree"
+                    ],
+                    "options": {
+                        "jestConfig": "apps/forfait-tree/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "forfait-two": {
+            "$schema": "../../node_modules/nx/schemas/project-schema.json",
+            "projectType": "application",
+            "sourceRoot": "apps/forfait-two/src",
+            "prefix": "myapp",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "outputs": [
+                        "{options.outputPath}"
+                    ],
+                    "options": {
+                        "outputPath": "dist/apps/forfait-two",
+                        "index": "apps/forfait-two/src/index.html",
+                        "main": "apps/forfait-two/src/main.ts",
+                        "polyfills": "apps/forfait-two/src/polyfills.ts",
+                        "tsConfig": "apps/forfait-two/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "apps/forfait-two/src/favicon.ico",
+                            "apps/forfait-two/src/assets"
+                        ],
+                        "styles": [
+                            "apps/forfait-two/src/styles.scss",
+                            "node_modules/quill/dist/quill.core.css",
+                            "node_modules/quill/dist/quill.snow.css"
+                        ],
+                        "scripts": [
+                            "node_modules/quill/dist/quill.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "forfait-two:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "forfait-two:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "forfait-two:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/forfait-two/**/*.ts",
+                            "apps/forfait-two/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/apps/forfait-two"
+                    ],
+                    "options": {
+                        "jestConfig": "apps/forfait-two/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "orders": {
+            "projectType": "library",
+            "root": "libs/orders",
+            "sourceRoot": "libs/orders/src",
+            "prefix": "orders",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/orders/src/**/*.ts",
+                            "libs/orders/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/libs/orders"
+                    ],
+                    "options": {
+                        "jestConfig": "libs/orders/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "products": {
+            "projectType": "library",
+            "root": "libs/products",
+            "sourceRoot": "libs/products/src",
+            "prefix": "products",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/products/src/**/*.ts",
+                            "libs/products/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/libs/products"
+                    ],
+                    "options": {
+                        "jestConfig": "libs/products/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "ui": {
+            "root": "libs/ui",
+            "sourceRoot": "libs/ui/src",
+            "projectType": "library",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/**/*.ts"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/libs/ui"
+                    ],
+                    "options": {
+                        "jestConfig": "libs/ui/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "users": {
+            "projectType": "library",
+            "root": "libs/users",
+            "sourceRoot": "libs/users/src",
+            "prefix": "users",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/users/src/**/*.ts",
+                            "libs/users/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/libs/users"
+                    ],
+                    "options": {
+                        "jestConfig": "libs/users/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        }
+    },
+    "schematics": {
+        "@nrwl/angular": {
+            "application": {
+                "linter": "eslint"
+            },
+            "library": {
+                "linter": "eslint"
+            },
+            "storybook-configuration": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/angular:application": {
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "unitTestRunner": "jest"
+        },
+        "@nrwl/angular:component": {
+            "style": "scss"
+        }
+    }
+}
